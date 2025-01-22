@@ -1,5 +1,3 @@
-import os
-
 from apscheduler.schedulers.background import BackgroundScheduler
 import factory
 from model.const.timeframe import TimeFrame
@@ -52,26 +50,16 @@ def add_job(tickers):
         )
 
 scheduler = BackgroundScheduler()
-if os.getenv("ID") == "upbit":
-    tickers = [
-        "ETH/KRW",
-        "BCH/KRW",
-        "AAVE/KRW",
-        "SOL/KRW",
-        "BSV/KRW",
-    ]
-    add_job(tickers)
-elif os.getenv("ID") == "bithumb":
-    tickers = [
-        "BTC/KRW",
-        "ETH/KRW",
-        "BCH/KRW",
-        "AAVE/KRW",
-        "SOL/KRW",
-        "BSV/KRW",
-        "YFI/KRW",
-        "BNB/KRW",
-        "COMP/KRW"
-    ]
-    add_job(tickers)
+tickers = [
+    "BTC/KRW",
+    "ETH/KRW",
+    "BCH/KRW",
+    "AAVE/KRW",
+    "SOL/KRW",
+    "BSV/KRW",
+    "YFI/KRW",
+    "BNB/KRW",
+    "COMP/KRW"
+]
+add_job(tickers)
 

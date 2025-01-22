@@ -1,5 +1,3 @@
-import os
-
 import pandas as pd
 from pandas import DataFrame
 
@@ -35,12 +33,6 @@ class ExchangeModule:
         Ticker : {ticker}
         Amount : {amount}
         {'-'*30}""")
-        if os.getenv("ID") == "upbit":
-            self.exchange.options['createMarketBuyOrderRequiresPrice'] = False
-            return self.exchange.create_market_buy_order(
-                symbol=ticker,
-                amount=7000,
-            )
         return self.exchange.create_market_buy_order(
             symbol=ticker,
             amount=amount
@@ -99,3 +91,4 @@ class ExchangeModule:
         df = df[['datetime','close']]
         data = data_utils.create_sub_data(df)
         return data
+
